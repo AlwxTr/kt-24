@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- <button type="submit" id="show" onclick="showData()">Show data</button> -->
+    <div class="script">
+    <div id="linK"></div>
+    <script src="script.js"></script>
+    </div>
+    <div style="text-align: center;">
+    <center><div id="result"></div></center>
+    <input type="button" value="1st" id="first" onclick="getFirstPage()">
+    <input type="button" value="<" id="previous" onclick="getPreviousPage()">
+    <input type="button" value=">" id="next" onclick="getNextPage()">
+    </div>
+    <!-- <div class="showLink">
     <label>Which page do u want to show?<br><input type="text" id="pageNumber"></label><br>
     <label>Choose your page size: <br> <input type="text" id="pageSize"></label><br>
     <button type="submit" id="show" onclick="showLink()">Show url</button>
-    <button type="submit" id="show" onclick="showData()">Show data</button>
-    <div id="linK"></div>
-    <div id="result"></div>
-    <script src="script.js"></script>
-    
-
+    </div> -->
 </body>
 </html>
