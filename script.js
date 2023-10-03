@@ -17,14 +17,15 @@ async function showLink() {
 }
 
 let currentPage = 0;
-const pageSize = 12;
+let pageSize = 12;
 
-async function showData(page) {
+async function showData(page, selectedPageSize) {
+    pageSize = selectedPageSize;
     let url = `https://api.kt-24.pro/api/logs/sort?page=${page}&pageSize=${pageSize}`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(url)
-    
+  console.log(url);
+
     const resultElement = document.getElementById('result');
     resultElement.innerHTML = '';
 
@@ -51,24 +52,30 @@ async function showData(page) {
 
     resultElement.appendChild(table);
 }
+
 function getFirstPage() {
     currentPage = 0;
-    showData(currentPage);
+    showData(currentPage, pageSize); 
 }
 
 function getNextPage() {
     currentPage++;
-    showData(currentPage);
+    showData(currentPage, pageSize); 
 }
 
 function getPreviousPage() {
     if (currentPage > 0) {
-        currentPage--;
-        showData(currentPage);
-    }
+       currentPage--;
+       showData(currentPage, pageSize); 
+}
+document.getElementById('pageSized').addEventListener('change', function () {
+    const selectedPageSize = parseInt(this.value);
+    currentPage = 0;
+   showData(currentPage, selectedPageSize); 
+});
 }
 
-showData(currentPage);
+showData(currentPage, pageSize);
 
 
 
@@ -94,3 +101,4 @@ showData(currentPage);
 //     document.getElementById("result").innerHTML =+ '<table><tr><th>account</th><th>accountCountry</th><th>baselinkerStatus</th><th>createdAt</th><th>deliveryCountry</th><th>deliveryMethod</th><th>id</th><th>invoiceCountry</th><th>isStock</th><th>isValid</th><th>marketplace</th><th>nip</th><th>orderId</th><th>paymentMethod</th><th>viesUid</th><th>warehouse</th></tr>'
 //     + '<tr><td>' + el.account + '</td><td>' + el.accountCountry + '</td><td>' + el.baselinkerStatus +'</td><td>' + el.createdAt + '</td><td>' + el.deliveryCountry + '</td><td>' + el.deliveryMethod + '</td><td>' + el.id + '</td><td>' + el.invoiceCountry + '</td><td>' + el.isStock + '</td><td>' + el.isValid + '</td><td>' + el.marketplace + '</td><td>' + el.nip + '</td><td>' + el.orderId + '</td><td>' + el.paymentMethod + '</td><td>' + el.viesUid + '</td><td>'+ el.warehouse + '</td></table>'
 // })
+

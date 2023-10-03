@@ -16,11 +16,19 @@
     <div id="linK"></div>
     <script src="script.js"></script>
     </div>
-    <div style="text-align: center;">
+    <div style="text-align: right;">
     <center><div id="result"></div></center>
-    <input type="button" value="1st" id="first" onclick="getFirstPage()">
-    <input type="button" value="<" id="previous" onclick="getPreviousPage()">
-    <input type="button" value=">" id="next" onclick="getNextPage()">
+    <div class="inputs" style="margin-right: 7.5%;">
+        <select name="pageSize" id="pageSized">
+            <option value="12">12</option>
+            <option value="22">22</option>
+            <option value="52">52</option>
+            <option value="102">102</option>
+        </select>
+        <input type="button" value="1st" id="first" onclick="getFirstPage()">
+        <input type="button" value="<" id="previous" onclick="getPreviousPage()">
+        <input type="button" value=">" id="next" onclick="getNextPage()">
+    </div>
     </div>
     <!-- <div class="showLink">
     <label>Which page do u want to show?<br><input type="text" id="pageNumber"></label><br>
